@@ -1,0 +1,27 @@
+# Java
+*.class
+*.jar
+*.war
+*.nar
+target/
+bin/
+.mvn/
+.mvn/wrapper/maven-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.classpath
+.project
+.settings/
+.vscode/
+
+# Docker
+docker-compose.override.yml
+.env
+
+# Logs
+logs/
+*.log

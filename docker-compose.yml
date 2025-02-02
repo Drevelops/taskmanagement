@@ -1,0 +1,61 @@
+
+services:
+  user-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
+    volumes:
+      - user-db-data:/var/lib/postgresql/data
+    networks:
+      - task-network
+
+  task-db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_DB: taskdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - task-db-data:/var/lib/postgresql/data
+    networks:
+      - task-network
+
+  user-service:
+    build: ./user-service
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://user-db:5432/userdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - task-network
+    depends_on:
+      - user-db
+
+  task-service:
+    build: ./task-service
+    ports:
+      - "8081:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://task-db:5432/taskdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: password
+    networks:
+      - task-network
+    depends_on:
+      - task-db
+
+volumes:
+  user-db-data:
+  task-db-data:
+
+networks:
+  task-network:
+    driver: bridge

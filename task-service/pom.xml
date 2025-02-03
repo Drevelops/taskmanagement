@@ -11,7 +11,7 @@
 	<groupId>com.taskmanagement</groupId>
 	<artifactId>task-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>TaskService</name>
+	<name>task-service</name>
 	<description>Task Service</description>
 	<url/>
 	<licenses>

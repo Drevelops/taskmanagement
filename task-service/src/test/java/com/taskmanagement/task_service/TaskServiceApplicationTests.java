@@ -1,10 +1,10 @@
-package com.taskmanagement.userservice;
+package com.taskmanagement.task_service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserserviceApplicationTests {
+class TaskServiceApplicationTests {
 
 	@Test
 	void contextLoads() {

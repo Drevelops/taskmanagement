@@ -11,8 +11,8 @@
 	<groupId>com.taskmanagement</groupId>
 	<artifactId>user-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>userservice</name>
-	<description>UserService</description>
+	<name>user-service</name>
+	<description>User Service</description>
 	<url/>
 	<licenses>
 		<license/>

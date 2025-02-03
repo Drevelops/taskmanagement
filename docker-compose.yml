@@ -1,5 +1,6 @@
 
 services:
+
   user-db:
     image: postgres:15-alpine
     environment:
@@ -12,6 +13,7 @@ services:
       - user-db-data:/var/lib/postgresql/data
     networks:
       - task-network
+
 
   task-db:
     image: postgres:15-alpine
@@ -26,6 +28,7 @@ services:
     networks:
       - task-network
 
+
   user-service:
     build: ./user-service
     ports:
@@ -38,6 +41,7 @@ services:
       - task-network
     depends_on:
       - user-db
+
 
   task-service:
     build: ./task-service
